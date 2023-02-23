@@ -28,7 +28,11 @@ footer{
 }
 
 h1{
-    text-shadow: black 1px 0px 0px, rgba(130, 150, 252, 0.4) 10px 10px 1px,rgba(130, 150, 252, 0.3) 20px 20px 1px,rgba(130, 150, 252, 0.2) 30px 30px 1px;
+    text-shadow: 
+        black 1px 0px 0px, 
+        rgba(130, 150, 252, 0.4) -20px -10px 1px,
+        rgba(130, 150, 252, 0.3) -45px -20px 1px,
+        rgba(130, 150, 252, 0.2) -60px -30px 1px;
     margin-bottom: 5%;
 }
 
@@ -43,6 +47,18 @@ button{
 }
 
 a{
-    text-decoration: none;
     color: inherit;
+}
+
+caption{
+    display: table-caption;
+    text-align: left;
+    font-style: italic;
+    overflow-wrap: break-word;
+    caption-side: bottom;
+    width: inherit;
+}
+
+.image{
+    padding-top: 5%;
 }
