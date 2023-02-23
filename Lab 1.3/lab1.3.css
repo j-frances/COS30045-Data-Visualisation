@@ -47,8 +47,48 @@ a{
     color: inherit;
 }
 
-rect{
-    fill:white;
+.rect{
+    display: block;
+}
+
+.dogs{
+    fill: red;
+    stroke: black;
+}
+
+.cats{
+    fill: rgba(144, 238, 144, 0.425);
+    stroke: blue;
+}
+
+.fish{
+    fill: blue;
+    stroke: rgba(0, 255, 255, 0.726);
+    stroke-width: 1%;
+}
+
+.birds{
+    fill: yellow;
+    stroke: blue;
+    stroke-width: 2%;
+}
+
+.small-mammals{
+    fill: rgba(255, 228, 196, 0.616);
+    stroke: blue;
+    stroke-width: 0.2%;
+}
+
+.reptiles{
+    fill: azure;
+    stroke: blue;
+    stroke-width: 1%;
+}
+
+.other{
+    fill: orange;
+    stroke: blue;
+    stroke-width: 0%;
 }
 
 svg{
