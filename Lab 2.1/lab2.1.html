@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta name="author" content="Jonathan Frances">
+        <meta name="keywords" content="HTML, CSS">
+        <meta name="description" content="lab task 1.1">
+        <title>Task 2.1 D3 Data Binding</title>
+        <link rel="stylesheet" href="lab2.1.css">
+        <script src="https://d3js.org/d3.v7.min.js"></script>
+    </head>
+    <body>
+        <h1>D3 Data Binding</h1>
+        <script>
+            var dataset = [14, 5, 26, 23, 9];
+
+            d3.select("body").selectAll("p")
+                .data(dataset)
+                .enter()
+                .append("p")
+                .style("color", function(d){
+                    if(d > 10){
+                        console.log("here");
+                        return d3.color("red");
+                    }else{
+                        return;
+                    }
+                })
+                .text(function(d){            
+                    msg = `Joe watched ${d} cat videos today.`;
+                    if(d > 10){
+                        return "Warning: " + msg;
+                    }else{
+                        return msg;
+                    }
+                });
+        </script>
+    </body>
+</html>
