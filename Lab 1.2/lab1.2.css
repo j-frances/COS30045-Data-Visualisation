@@ -47,9 +47,15 @@ a{
     color: inherit;
 }
 
+caption{
+    display: table-caption;
+    text-align: left;
+    font-style: italic;
+    overflow-wrap: break-word;
+    caption-side: bottom;
+    width: inherit;
+}
+
 .image{
-    position: absolute;
-    right: 30%;
-    width: 20%;
     height: auto;
 }
