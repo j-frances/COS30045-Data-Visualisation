@@ -2,8 +2,6 @@ var w = 500;
 var h = 200;
 var offset = 3;
 var padding = 100;
-var max_x = 0;
-var max_y = 0;
 
 var dataset = [ 
     [5, 20], 
@@ -17,18 +15,6 @@ var dataset = [
     [85, 21],  
     [220, 88] 
     ];
-
-// Find the largest X and Y values to draw the SVG area around
-for(var i = 0; i < dataset.length; i++){
-    
-    if(max_x < dataset[i][0]){
-        max_x = dataset[i][0];
-    }
-    
-    if(max_y < dataset[i][1]){
-        max_y = dataset[i][1];
-    }
-}
 
 var xScale = d3.scaleLinear()
     .domain([d3.min(dataset, function(d){
@@ -51,8 +37,8 @@ var yScale = d3.scaleLinear()
 var svg = d3.select("body")
     .data(dataset)
     .append("svg")
-    .attr("width", max_x + padding * 3)
-    .attr("height", max_y + padding * 3)
+    .attr("width", w + padding * 3)
+    .attr("height", h + padding * 3)
     .style("outline", "solid thin skyblue");
                
 svg.selectAll("circle")
@@ -79,10 +65,10 @@ svg.selectAll("text")
     .enter()
     .append("text")
     .attr("x", function(d){
-        return d[0] + offset + padding;
+        return xScale(d[0]) + offset + padding;
     })
     .attr("y", function(d){
-        return d[1] - offset + padding;
+        return yScale(d[1]) - offset + padding;
     })
     .style("font-style", "italic")
     .style("fill", d3.color("white"))
