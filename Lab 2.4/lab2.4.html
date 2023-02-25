@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta name="author" content="Jonathan Frances">
+        <meta name="keywords" content="HTML, CSS">
+        <meta name="description" content="lab task 2.4">
+        <title>Task 2.4 D3 Loading Data from CSV</title>
+        <link rel="stylesheet" href="lab2.4.css">
+        <script src="https://d3js.org/d3.v7.min.js"></script>
+    </head>
+    <body>
+        <h1>D3 Loading Data from CSV</h1>
+        <script>
+            d3.csv("res/Task_2.4_data.csv").then(function(data){
+                console.log(data);
+                wombatSightings = data;
+            })
+        </script>
+        <footer>Authored by Jonathan Frances | <a href="mailto:103426340@student.swin.edu.au">103426340@student.swin.edu.au</a></footer>
+    </body>
+</html>
