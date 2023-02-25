@@ -1,5 +1,5 @@
-var w = 500;
-var h = 200;
+var w = 1000;
+var h = 1000;
 var offset = 3;
 var padding = 100;
 
