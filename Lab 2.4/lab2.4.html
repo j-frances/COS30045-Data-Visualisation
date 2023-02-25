@@ -29,13 +29,7 @@
                     })
                     .attr("width", (w / data.length) - padding)
                     .attr("height", function(d){
-                        console.log(d.wombats);
-                        console.log(d);
-                        console.log(data);
-                        console.log(data.wombats);
-                        console.log(data[0]);
-                        console.log(data[0].wombats);
-                        return d.wombats;
+                        return d.wombats * 4;
                     });
             }           
 
