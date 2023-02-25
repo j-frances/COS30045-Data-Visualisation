@@ -24,8 +24,7 @@
                         return i * (w / data.length);
                     })
                     .attr("y", function(d){
-                        console.log(data.wombats);
-                        return h - (data.wombats * 4);
+                        return h - (d.wombats * 4);
                     });
             }           
 
