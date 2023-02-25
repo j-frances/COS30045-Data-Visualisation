@@ -26,9 +26,9 @@
                     .attr("height", h)
                     .style("outline", "solid thin skyblue");
 
-            function barChart(){
+            function barChart(data){
                 svg.selectAll("rect")
-                    .data(wombatSightings)
+                    .data(data)
                     .enter()
                     .append("rect")
                     .attr("x", function(d, i){
@@ -38,6 +38,9 @@
                         return h - (d.wombats * 4)
                     });
             }
+
+            barChart(wombatSightings);
+            
         </script>
         <footer>Authored by Jonathan Frances | <a href="mailto:103426340@student.swin.edu.au">103426340@student.swin.edu.au</a></footer>
     </body>
