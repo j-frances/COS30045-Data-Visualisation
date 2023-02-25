@@ -14,11 +14,9 @@
         <script>
             var w = 500;
             var h = 100;
-            var wombatSightings;
-
-            d3.csv("res/Task_2.4_data.csv").then(function(data){
+            var wombatSightings = d3.csv("res/Task_2.4_data.csv").then(function(data){
                 console.log(data);
-                wombatSightings = data;
+                return data;
             });
 
             var svg = d3.select("body")
