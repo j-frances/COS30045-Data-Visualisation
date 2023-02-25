@@ -20,7 +20,6 @@
             });
 
             var svg = d3.select("body")
-                    .data(wombatSightings)
                     .append("svg")
                     .attr("width", w)
                     .attr("height", h)
@@ -39,8 +38,9 @@
                     });
             }
 
+            console.log(wombatSightings);
             barChart(wombatSightings);
-            
+
         </script>
         <footer>Authored by Jonathan Frances | <a href="mailto:103426340@student.swin.edu.au">103426340@student.swin.edu.au</a></footer>
     </body>
