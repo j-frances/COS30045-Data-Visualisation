@@ -32,13 +32,13 @@ var yScale = d3.scaleLinear()
     d3.max(dataset, function(d){
         return d[1];
     })])
-    .range([0,h])
+    .range([padding,h - padding])
 
 var svg = d3.select("body")
     .data(dataset)
     .append("svg")
-    .attr("width", w + padding * 3)
-    .attr("height", h + padding * 3)
+    .attr("width", w)
+    .attr("height", h)
     .style("outline", "solid thin skyblue");
                
 svg.selectAll("circle")
