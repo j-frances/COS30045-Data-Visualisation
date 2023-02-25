@@ -12,8 +12,9 @@
     <body>
         <h1>D3 Loading Data from CSV</h1>
         <script>
-            var w = 500;
-            var h = 100;
+            var w = 1000;
+            var h = 500;
+            var padding = 10;
             
             function barChart(data){
                 svg.selectAll("rect")
@@ -25,6 +26,10 @@
                     })
                     .attr("y", function(d){
                         return h - (d.wombats * 4);
+                    })
+                    .attr("width", (w / data.length) - padding)
+                    .attr("height", function(d){
+                        return d;
                     });
             }           
 
