@@ -6,41 +6,12 @@
         <meta name="description" content="lab task 2.2">
         <title>Task 2.2 D3 Drawing with Data - Bar Chart</title>
         <link rel="stylesheet" href="lab2.2.css">
-        <script src="../d3.js/d3.v7.min.js.js"></script>
     </head>
     <body>
         <h1>D3 Drawing with Data - Bar Chart</h1>
-        <script>
-            var w = 500;
-            var h = 200;
 
-            var padding = 10;
-
-            var dataset = [14, 5, 26, 23, 9];
-
-            var svg = d3.select("body")
-                .append("svg")
-                .attr("width", w)
-                .attr("height", h)
-                .style("background-color", d3.color("skyblue"));
-               
-            
-            svg.selectAll("rect")
-                .data(dataset)
-                .enter()
-                .append("rect")
-                .attr("x", function(d, i){
-                    return i * (w / dataset.length) + padding;
-                })
-                .attr("y", function(d){
-                    return 100 + (100 - (d * 4));
-                })
-                .attr("width", (w / dataset.length) - padding)
-                .attr("height", function(d){
-                    return d * 4;
-                })
-                .style("fill", d3.color("yellowgreen"));
-        </script>
         <footer>Authored by Jonathan Frances | <a href="mailto:103426340@student.swin.edu.au">103426340@student.swin.edu.au</a></footer>
     </body>
+    <script src="../d3.js/d3.v7.min.js.js"></script>
+    <script src="lab2.2.js"></script>
 </html>

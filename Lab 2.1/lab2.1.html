@@ -6,34 +6,11 @@
         <meta name="description" content="lab task 2.1">
         <title>Task 2.1 D3 Data Binding</title>
         <link rel="stylesheet" href="lab2.1.css">
-        <script src="../d3.js/d3.v7.min.js.js"></script>
     </head>
     <body>
         <h1>D3 Data Binding</h1>
-        <script>
-            var dataset = [14, 5, 26, 23, 9];
-
-            d3.select("body").selectAll("p")
-                .data(dataset)
-                .enter()
-                .append("p")
-                .style("color", function(d){
-                    if(d > 10){
-                        console.log("here");
-                        return d3.color("red");
-                    }else{
-                        return;
-                    }
-                })
-                .text(function(d){            
-                    msg = `Joe watched ${d} cat videos today.`;
-                    if(d > 10){
-                        return "Warning: " + msg;
-                    }else{
-                        return msg;
-                    }
-                });
-        </script>
         <footer>Authored by Jonathan Frances | <a href="mailto:103426340@student.swin.edu.au">103426340@student.swin.edu.au</a></footer>       
     </body>
+    <script src="../d3.js/d3.v7.min.js.js"></script>
+    <script src="lab2.1.js"></script>
 </html>
