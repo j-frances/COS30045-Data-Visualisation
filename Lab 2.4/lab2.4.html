@@ -31,10 +31,10 @@
                     .enter()
                     .append("rect")
                     .attr("x", function(d, i){
-                        return i * (w / wombatSightings.length);
+                        return i * (w / data.length);
                     })
                     .attr("y", function(d){
-                        return h - (d.wombats * 4)
+                        return h - (data.wombats * 4)
                     });
             }
 
