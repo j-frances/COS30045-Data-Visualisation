@@ -14,17 +14,17 @@
             var w = 500;
             var h = 100;
 
+            d3.csv("res/Task_2.4_data.csv").then(function(data){
+                console.log(data);
+                wombatSightings = data;
+            });
+
             var svg = d3.select("body")
                     .data(dataset)
                     .append("svg")
                     .attr("width", w)
                     .attr("height", h)
                     .style("outline", "solid thin skyblue");
-
-            d3.csv("res/Task_2.4_data.csv").then(function(data){
-                console.log(data);
-                wombatSightings = data;
-            })
 
             function barChart(){
                 svg.selectAll("rect")
