@@ -1,6 +1,5 @@
 var w = 1000;
 var h = 1000;
-var offset = 3;
 var padding = 100;
 
 var dataset = [ 
@@ -46,10 +45,10 @@ svg.selectAll("circle")
     .enter()
     .append("circle")
     .attr("cx", function(d, i){
-        return xScale(d[0]) + padding;
+        return xScale(d[0]);
     })
     .attr("cy", function(d){
-        return yScale(d[1]) + padding;
+        return yScale(d[1]);
     })
     .attr("r", 5)
     .attr("fill", function(d){
@@ -65,10 +64,10 @@ svg.selectAll("text")
     .enter()
     .append("text")
     .attr("x", function(d){
-        return xScale(d[0]) + offset + padding;
+        return xScale(d[0]);
     })
     .attr("y", function(d){
-        return yScale(d[1]) - offset + padding;
+        return yScale(d[1]);
     })
     .style("font-style", "italic")
     .style("fill", d3.color("white"))
