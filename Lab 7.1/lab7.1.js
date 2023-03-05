@@ -26,12 +26,12 @@ function lineChart(dataset){
             d3.min(dataset, function(d){ return d.date; }),
             d3.max(dataset, function(d){ return d.date; })
         ])
-        .range([0, w]);
+        .range([0, w - padding]);
 
     yScale = d3.scaleLinear()
         .domain([0, d3.max(dataset, function(d) { return d.number; })
         ])
-        .range([h, 0]);
+        .range([h - padding, 0]);
         
     line = d3.line()
         .x(function(d) { return xScale(d.date); })
@@ -42,7 +42,7 @@ function lineChart(dataset){
     svg.append("path")
         .datum(dataset)
         .attr("class", "area")
-        .attr("transform", "translate(" + padding + ", "+ padding +")")
+        .attr("transform", "translate(" + padding + ", "+ (padding * -1) +")")
         .attr("d", d3.area()
         .x(function(d) { return xScale(d.date) })
         .y0(function() { return yScale.range()[0] })
