@@ -33,16 +33,10 @@ function lineChart(dataset){
         ])
         .range([h - padding, 0]);
         
-    line = d3.line()
-        .x(function(d) { return xScale(d.date); })
-        .y(function(d) { return yScale(d.number); });
-        
-    area = 
-
     svg.append("path")
         .datum(dataset)
         .attr("class", "area")
-        .attr("transform", "translate(" + padding + ", "+ (padding * -1) +")")
+        .attr("transform", "translate(" + padding + ", 0)")
         .attr("d", d3.area()
         .x(function(d) { return xScale(d.date) })
         .y0(function() { return yScale.range()[0] })
@@ -62,7 +56,7 @@ function lineChart(dataset){
         .call(xAxis);
     
     svg.append("g")
-        .attr("transform", "translate(" + padding+ ","+(0) +")")
+        .attr("transform", "translate(" + padding+ ","+ padding + ")")
         .call(yAxis);
 
     svg.append("line")
