@@ -52,11 +52,11 @@ function lineChart(dataset){
         .scale(yScale);
     
     svg.append("g")
-        .attr("transform", "translate(0, "+(h - padding) +")")
+        .attr("transform", "translate(" + padding + ", "+(h - padding) +")")
         .call(xAxis);
     
     svg.append("g")
-        .attr("transform", "translate(" + padding+ ","+ padding + ")")
+        .attr("transform", "translate(" + padding+ ",0)")
         .call(yAxis);
 
     svg.append("line")
