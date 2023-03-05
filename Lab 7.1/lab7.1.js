@@ -37,15 +37,16 @@ function lineChart(dataset){
         .x(function(d) { return xScale(d.date); })
         .y(function(d) { return yScale(d.number); });
         
-    area = d3.area()
-        .x(function(d) { return xScale(d.date); })
-        .y0(function() { return yScale.range()[0]; })
-        .y1(function(d) { return yScale(d.number); })
+    area = 
 
-    svg.append("area")
+    svg.append("path")
         .datum(dataset)
         .attr("class", "area")
-        .attr("d", area);
+        .attr("d", d3.area()
+        .x(function(d) { return xScale(d.date) })
+        .y0(function() { return yScale.range()[0] })
+        .y1(function(d) { return yScale(d.number) })
+        );
 
     var xAxis = d3.axisBottom()
         .ticks(5)
