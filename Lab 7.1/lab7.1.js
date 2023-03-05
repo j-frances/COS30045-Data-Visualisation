@@ -1,6 +1,6 @@
 var w = 1000;
 var h = 500;
-var padding = 100;
+var padding = 25;
 
 var svg = d3.select("p")
     .append("svg")
