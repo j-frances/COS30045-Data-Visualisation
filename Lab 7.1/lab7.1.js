@@ -33,7 +33,7 @@ d3.csv("res/Unemployment_78-95.csv", function(d){
 }).then(function(data){
     dataset = data;
     lineChart(dataset);
-    console.log(dataset, ["date", "number"]);
+    console.table(dataset, ["date", "number"]);
 });
 
 function lineChart(dataset){
