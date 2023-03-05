@@ -33,14 +33,15 @@ function lineChart(dataset){
         ])
         .range([h, 0]);
         
-    line = d3.line()
+    area = d3.area()
         .x(function(d) { return xScale(d.date); })
-        .y(function(d) { return yScale(d.number); });
+        .y0(function() { return yScale.range()[0]; })
+        .y1(function(d) { return yScale(d.number); })
 
     svg.append("area")
         .datum(dataset)
-        .attr("class", "line")
-        .attr("d", line);
+        .attr("class", "area")
+        .attr("d", area);
 
     var xAxis = d3.axisBottom()
         .ticks(5)
@@ -71,9 +72,5 @@ function lineChart(dataset){
         .attr("y", yScale(500000) - 7)
         .text("Half a million unemployed");
 
-    area = d3.area()
-        .x(function(d) { return xScale(d.date); })
-        .y0(function() { return yScale.range()[0]; })
-        .y1(function(d) { return yScale(d.number); })
 }           
 
