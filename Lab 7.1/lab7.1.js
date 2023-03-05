@@ -8,7 +8,19 @@ var svg = d3.select("p")
     .attr("width", w)
     .attr("height", h)
     .style("outline", "solid thin skyblue");
-    
+
+xScale = d3.scaleTime()
+    .domain([
+        d3.min(dataset, function(d){ return d.date; }),
+        d3.max(dataset, function(d) { return d.date; })
+    ])
+    .range([0, w]);
+
+yScale = d3.scaleLinear()
+    .domain([0, d3.max(dataset, function(d) { return d.number; })
+    ])
+    .range([h, 0]);
+
 line = d3.line()
 .x(function(d) { return xScale(d.date); })
 .y(function(d) { return yScale(d.number); });
@@ -23,18 +35,6 @@ d3.csv("res/Unemployment_78-95.csv", function(d){
     lineChart(dataset);
     console.log(dataset, ["date", "number"]);
 });
-
-xScale = d3.scaleTime()
-    .domain([
-        d3.min(dataset, function(d){ return d.date; }),
-        d3.max(dataset, function(d) { return d.date; })
-    ])
-    .range([0, w]);
-
-yScale = d3.scaleLinear()
-    .domain([0, d3.max(dataset, function(d) { return d.number; })
-    ])
-    .range([h, 0]);
 
 function lineChart(dataset){
     svg.append("path")
