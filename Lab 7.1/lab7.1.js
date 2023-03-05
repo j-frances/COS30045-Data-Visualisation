@@ -1,11 +1,11 @@
 var w = 600;
 var h = 300;
-var padding = 10;
+var padding = 50;
 
 var svg = d3.select("p")
     .append("svg")
-    .attr("width", w)
-    .attr("height", h)
+    .attr("width", w + padding)
+    .attr("height", h + padding)
     .style("outline", "solid thin skyblue");
 
 d3.csv("res/Unemployment_78-95.csv", function(d){
@@ -37,7 +37,7 @@ function lineChart(dataset){
         .x(function(d) { return xScale(d.date); })
         .y(function(d) { return yScale(d.number); });
 
-    svg.append("path")
+    svg.append("area")
         .datum(dataset)
         .attr("class", "line")
         .attr("d", line);
@@ -51,11 +51,29 @@ function lineChart(dataset){
         .scale(yScale);
     
     svg.append("g")
-        .attr("transform", "translate(0, "+(w - padding) +")")
+        .attr("transform", "translate(0, "+(h - padding) +")")
         .call(xAxis);
     
     svg.append("g")
         .attr("transform", "translate(" + padding+ ","+(0) +")")
         .call(yAxis);
+
+    svg.apppend("line")
+        .attr("class", "line halfMilMark")
+        .attr("x1", padding)
+        .attr("y1", yScale(500000))
+        .attr("x2", w)
+        .attr("y2", yScale(500000));
+    
+    svg.append("text")
+        .attr("class", "halfMilLabel")
+        .attr("x", padding + 10)
+        .attr("y", yScale(500000) - 7)
+        .text("Half a million unemployed");
+
+    area = d3.area()
+        .x(function(d) { return xScale(d.date); })
+        .y0(function() { return yScale.range()[0]; })
+        .y1(function(d) { return yScale(d.number); })
 }           
 
