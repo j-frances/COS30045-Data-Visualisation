@@ -1,6 +1,6 @@
-var w = 600;
-var h = 300;
-var padding = 50;
+var w = 1000;
+var h = 500;
+var padding = 100;
 
 var svg = d3.select("p")
     .append("svg")
@@ -42,6 +42,8 @@ function lineChart(dataset){
     svg.append("path")
         .datum(dataset)
         .attr("class", "area")
+        .attr("x", padding)
+        .attr("y", padding)
         .attr("d", d3.area()
         .x(function(d) { return xScale(d.date) })
         .y0(function() { return yScale.range()[0] })
