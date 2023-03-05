@@ -3,6 +3,12 @@ var h = 300;
 
 var dataset
 
+var svg = d3.select("p")
+    .append("svg")
+    .attr("width", w)
+    .attr("height", h)
+    .style("outline", "solid thin skyblue");
+
 d3.csv("res/Unemployment_78-95.csv", function(d){
     return {
         date: new Date(+d.year, +d.month-1),
@@ -29,12 +35,6 @@ yScale = d3.scaleLinear()
 line = d3.line()
     .x(function(d) { return xScale(d.date); })
     .y(function(d) { return yScale(d.number); });
-
-var svg = d3.select("p")
-    .append("svg")
-    .attr("width", w)
-    .attr("height", h)
-    .style("outline", "solid thin skyblue");
 
 function lineChart(dataset){
     svg.append("path")
