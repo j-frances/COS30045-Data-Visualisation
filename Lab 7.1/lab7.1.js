@@ -1,5 +1,6 @@
 var w = 600;
 var h = 300;
+var padding = 10;
 
 var svg = d3.select("p")
     .append("svg")
@@ -40,6 +41,21 @@ function lineChart(dataset){
         .datum(dataset)
         .attr("class", "line")
         .attr("d", line);
-}           
 
+    var xAxis = d3.axisBottom()
+        .ticks(5)
+        .scale(xScale);
+    
+    var yAxis = d3.axisLeft()
+        .ticks(5)
+        .scale(yScale);
+    
+    svg.append("g")
+        .attr("transform", "translate(0, "+(w - padding) +")")
+        .call(xAxis);
+    
+    svg.append("g")
+        .attr("transform", "translate(" + padding+ ","+(0) +")")
+        .call(yAxis);
+}           
 
