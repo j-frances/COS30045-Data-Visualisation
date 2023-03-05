@@ -33,6 +33,10 @@ function lineChart(dataset){
         ])
         .range([h, 0]);
         
+    line = d3.line()
+        .x(function(d) { return xScale(d.date); })
+        .y(function(d) { return yScale(d.number); });
+        
     area = d3.area()
         .x(function(d) { return xScale(d.date); })
         .y0(function() { return yScale.range()[0]; })
