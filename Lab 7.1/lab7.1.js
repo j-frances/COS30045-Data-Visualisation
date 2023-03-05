@@ -4,8 +4,9 @@ var padding = 100;
 
 var svg = d3.select("p")
     .append("svg")
-    .attr("width", w + padding)
-    .attr("height", h + padding)
+    .attr("margin", padding)
+    .attr("width", w)
+    .attr("height", h)
     .style("outline", "solid thin skyblue");
 
 d3.csv("res/Unemployment_78-95.csv", function(d){
@@ -42,8 +43,7 @@ function lineChart(dataset){
     svg.append("path")
         .datum(dataset)
         .attr("class", "area")
-        .attr("x", padding)
-        .attr("y", padding)
+        .attr("margin", padding)
         .attr("d", d3.area()
         .x(function(d) { return xScale(d.date) })
         .y0(function() { return yScale.range()[0] })
