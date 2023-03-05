@@ -58,7 +58,7 @@ function lineChart(dataset){
         .attr("transform", "translate(" + padding+ ","+(0) +")")
         .call(yAxis);
 
-    svg.apppend("line")
+    svg.append("line")
         .attr("class", "line halfMilMark")
         .attr("x1", padding)
         .attr("y1", yScale(500000))
