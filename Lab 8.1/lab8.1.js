@@ -5,7 +5,7 @@ var padding = 25;
 var projection = d3.geoMercator()
     .center([145, -36.5])
     .translate([w / 2, h / 2])
-    .scale(2450);
+    .scale(0);
 
 var path = d3.geoPath()
     .projection(projection);
