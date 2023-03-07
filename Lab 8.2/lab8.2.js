@@ -59,21 +59,24 @@ d3.csv("res/VIC_LGA_unemployment.csv", function(d){
 
 d3.csv("res/VIC_city.csv", function(d){
     return {
-        city: +d.place,
+        place: +d.place,
         lat: +d.lat,
         long: +d.lon
     }
 }).then(function(data){
+
+    var x = projection([d.long, d.lat])[0];
+    var y = projection([d.long, d.lat])[1];
 
     svg.selectAll("circle")
     .data(data)
     .enter()
     .append("circle")
     .attr("cx", function(d, i){
-        return projection([d.long, d.lat])[0];
+        return x;
     })
     .attr("cy", function(d, i){
-        return projection([d.long, d.lat])[1];
+        return y;
     })
     .attr("r", 5);
 
@@ -82,15 +85,16 @@ d3.csv("res/VIC_city.csv", function(d){
     .enter()
     .append("text")
     .attr("x", function(d){
-        return projection([d.long, d.lat][0]);
+        return x;
     })
     .attr("y", function(d){
-        return projection([d.long, d.lat][1]);
+        return y;
     })
     .style("fill", d3.color("yellow"))
+    .style("z-index", 1)
     .text(function(d){
         console.log(d);
-        return d.city;
+        return d.place;
     });
 });
 
