@@ -17,9 +17,10 @@ var svg = d3.select("p")
     .attr("fill", "grey");
 
 d3.json("res/LGA_VIC.json").then(function(json){
+
     svg.selectAll("path")
         .data(json.features)
         .enter()
         .append()
         .attr("d", path);
-})
+});
