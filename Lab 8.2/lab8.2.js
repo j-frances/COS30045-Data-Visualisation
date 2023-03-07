@@ -81,16 +81,15 @@ d3.csv("res/VIC_city.csv", function(d){
     .data(data)
     .enter()
     .append("text")
-    .attr("cx", function(d){
+    .attr("x", function(d){
         return projection([d.long, d.lat][0]);
     })
-    .attr("cy", function(d){
+    .attr("y", function(d){
         return projection([d.long, d.lat][1]);
     })
-    .style("font-style", "italic")
     .style("fill", d3.color("yellow"))
     .text(function(d){
-        console.log(d.city);
+        console.log(d);
         return d.city;
     });
 });
