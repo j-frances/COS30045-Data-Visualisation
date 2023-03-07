@@ -57,7 +57,6 @@ d3.csv("res/VIC_LGA_unemployment.csv", function(d){
     });
 
     d3.csv("res/VIC_city.csv", function(d){
-        console.table(d);
         return {
             place: d.place,
             lat: +d.lat,
