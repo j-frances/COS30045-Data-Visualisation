@@ -16,7 +16,7 @@ var svg = d3.select("p")
     .attr("height", h + padding)
     .attr("fill", "grey");
 
-d3.json("/res/LGA_VIC.json").then(function(json){
+d3.json("res/LGA_VIC.json").then(function(json){
     svg.selectAll("path")
         .data(json.features)
         .enter()
