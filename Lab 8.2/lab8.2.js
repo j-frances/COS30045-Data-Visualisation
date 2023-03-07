@@ -65,8 +65,8 @@ d3.csv("res/VIC_city.csv", function(d){
     }
 }).then(function(data){
 
-    var x = projection([d.long, d.lat])[0];
-    var y = projection([d.long, d.lat])[1];
+    var x = projection([data.long, data.lat])[0];
+    var y = projection([data.long, data.lat])[1];
 
     svg.selectAll("circle")
     .data(data)
