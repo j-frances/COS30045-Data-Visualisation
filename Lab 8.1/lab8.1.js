@@ -3,9 +3,9 @@ var h = 1000;
 var padding = 25;
 
 var projection = d3.geoMercator()
-    .center([145, -36.5])
+    .center([36.5, 145])
     .translate([w / 2, h / 2])
-    .scale(0);
+    .scale(150);
 
 var path = d3.geoPath()
     .projection(projection);
