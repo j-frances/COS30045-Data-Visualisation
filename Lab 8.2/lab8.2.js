@@ -3,8 +3,9 @@ var h = 1000;
 var padding = 25;
 
 var color = d3.scaleOrdinal()
-    .range(['#feebe2','#fbb4b9','#f768a1','#c51b8a','#7a0177']);
+    .range(['#004c6d','#41768e','#75a3b1','#acd0d6','#e7ffff']);
 
+    
 var projection = d3.geoMercator()
     .center([145,-36])
     .translate([w / 2, h / 2])
@@ -54,6 +55,37 @@ d3.csv("res/VIC_LGA_unemployment.csv", function(d){
             .attr("fill", function(d, i) {return color(i)})
             .attr("d", path);
     });
-
-    console.table(data, ["LGA_name", "unemployed"]);
 });
+
+d3.csv("res/VIC_city.csv", function(d){
+    return {
+        city: +d.place,
+        lat: +d.lat,
+        long: +d.lon
+    }
+}).then(function(data){
+
+    svg.selectAll("circle")
+    .data(data)
+    .enter()
+    .append("circle")
+    .attr("cx", function(d, i){
+        return projection([d.long, d.lat])[0];
+    })
+    .attr("r", 5);
+
+    svg.selectAll("text")
+    .data(data)
+    .enter()
+    .append("text")
+    .attr("x", function(d){
+        return projection([d.long, d.lat][0]);
+    })
+    .style("font-style", "italic")
+    .style("fill", d3.color("black"))
+    .text(function(d){
+        return d.city;
+    });
+});
+
+
