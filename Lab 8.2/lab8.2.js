@@ -3,7 +3,7 @@ var h = 1000;
 var padding = 25;
 
 var color = d3.scaleOrdinal()
-    .range(['#ffffcc','#a1dab4','#41b6c4','#2c7fb8','#253494']);
+    .range(['#eff3ff','#bdd7e7','#6baed6','#3182bd','#08519c']);
 
 var projection = d3.geoMercator()
     .center([145,-36])
@@ -55,5 +55,5 @@ d3.csv("res/VIC_LGA_unemployment.csv", function(d){
             .attr("d", path);
     });
 
-    console.table(data, ["date", "number"]);
+    console.table(data, ["LGA", "unemployed", "value"]);
 });
