@@ -58,6 +58,7 @@ d3.csv("res/VIC_LGA_unemployment.csv", function(d){
 });
 
 d3.csv("res/VIC_city.csv", function(d){
+    console.table(d);
     return {
         place: +d.place,
         lat: +d.lat,
@@ -67,6 +68,8 @@ d3.csv("res/VIC_city.csv", function(d){
 
     var x = projection([data.long, data.lat])[0];
     var y = projection([data.long, data.lat])[1];
+
+    console.log(x, y);
 
     svg.selectAll("circle")
     .data(data)
