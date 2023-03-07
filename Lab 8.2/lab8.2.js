@@ -73,6 +73,7 @@ d3.csv("res/VIC_city.csv", function(d){
         return projection([d.long, d.lat])[0];
     })
     .attr("cy", function(d, i){
+        console.log(projection([d.long, d.lat]));
         return projection([d.long, d.lat])[0];
     })
     .attr("r", 5);
@@ -81,14 +82,14 @@ d3.csv("res/VIC_city.csv", function(d){
     .data(data)
     .enter()
     .append("text")
-    .attr("x", function(d){
+    .attr("cx", function(d){
         return projection([d.long, d.lat][0]);
     })
-    .attr("y", function(d){
+    .attr("cy", function(d){
         return projection([d.long, d.lat][0]);
     })
     .style("font-style", "italic")
-    .style("fill", d3.color("black"))
+    .style("fill", d3.color("yellow"))
     .text(function(d){
         return d.city;
     });
