@@ -73,7 +73,6 @@ d3.csv("res/VIC_city.csv", function(d){
         return projection([d.long, d.lat])[0];
     })
     .attr("cy", function(d, i){
-        console.log(projection([d.long, d.lat]));
         return projection([d.long, d.lat])[1];
     })
     .attr("r", 5);
