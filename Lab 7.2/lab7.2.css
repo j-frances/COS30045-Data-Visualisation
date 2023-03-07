@@ -1,0 +1,109 @@
+html{
+    height: 100%;
+}
+
+body{
+    height: 100%;
+    padding: 10%; 
+    margin: 0;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background: rgb(63,94,251);
+    background: -moz-linear-gradient(156deg, rgba(63,94,251,1) 0%, rgba(190,70,252,1) 86%);
+    background: -webkit-linear-gradient(156deg, rgba(63,94,251,1) 0%, rgba(190,70,252,1) 86%);
+    background: linear-gradient(156deg, rgba(63,94,251,1) 0%, rgba(190,70,252,1) 86%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#3f5efb",endColorstr="#be46fc",GradientType=1); 
+    color: aliceblue;
+    font-family: 'Atkinson Hyperlegible', sans-serif;
+    font-size:large'
+}
+
+div{
+    text-shadow: black 1px 0px 0px;
+}
+footer{
+    position: absolute;
+    bottom: 1%;
+    right: 5%;
+}
+
+h1{
+    text-shadow: black 1px 0px 0px, rgba(130, 150, 252, 0.4) 10px 10px 1px,rgba(130, 150, 252, 0.3) 20px 20px 1px,rgba(130, 150, 252, 0.2) 30px 30px 1px;
+    margin-bottom: 5%;
+}
+
+button{
+    background-color: aliceblue;
+    border: none;
+    box-shadow: gold 1px 0px 0px;;
+    color: darkslategray;
+    border-radius: 5px;
+    height: 30px;
+    width: 100px;
+}
+
+a{
+    text-decoration: none;
+    color: inherit;
+}
+
+.rect{
+    display: block;
+}
+
+.dogs{
+    fill: red;
+    stroke: black;
+}
+
+.cats{
+    fill: rgba(144, 238, 144, 0.425);
+    stroke: blue;
+}
+
+.fish{
+    fill: blue;
+    stroke: rgba(0, 255, 255, 0.726);
+    stroke-width: 1%;
+}
+
+.birds{
+    fill: yellow;
+    stroke: blue;
+    stroke-width: 2%;
+}
+
+.small-mammals{
+    fill: rgba(255, 228, 196, 0.616);
+    stroke: blue;
+    stroke-width: 0.2%;
+}
+
+.reptiles{
+    fill: azure;
+    stroke: blue;
+    stroke-width: 1%;
+}
+
+.other{
+    fill: orange;
+    stroke: blue;
+    stroke-width: 0%;
+}
+
+svg{
+    background-color: skyblue;
+}
+
+.image{
+    position: absolute;
+    right: 30%;
+    width: 20%;
+    height: auto;
+}
+
+.line {
+    fill: none;
+    stroke: slategray;
+    stroke-width: 0.5;
+}
