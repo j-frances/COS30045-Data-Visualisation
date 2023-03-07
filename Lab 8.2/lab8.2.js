@@ -72,6 +72,9 @@ d3.csv("res/VIC_city.csv", function(d){
     .attr("cx", function(d, i){
         return projection([d.long, d.lat])[0];
     })
+    .attr("cy", function(d, i){
+        return projection([d.long, d.lat])[0];
+    })
     .attr("r", 5);
 
     svg.selectAll("text")
@@ -79,6 +82,9 @@ d3.csv("res/VIC_city.csv", function(d){
     .enter()
     .append("text")
     .attr("x", function(d){
+        return projection([d.long, d.lat][0]);
+    })
+    .attr("y", function(d){
         return projection([d.long, d.lat][0]);
     })
     .style("font-style", "italic")
