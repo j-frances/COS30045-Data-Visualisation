@@ -22,7 +22,8 @@ d3.json("res/LGA_VIC.json").then(function(json){
     svg.selectAll("path")
         .data(json.features)
         .enter()
-        .append().attr("stroke", "dimgray")
+        .append("path")
+        .attr("stroke", "dimgray")
         .attr("fill", function(d, i) {return color(i)})
         .attr("d", path);
 });
