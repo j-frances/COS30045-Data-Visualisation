@@ -55,50 +55,52 @@ d3.csv("res/VIC_LGA_unemployment.csv", function(d){
             .attr("fill", function(d, i) {return color(i)})
             .attr("d", path);
     });
-});
 
-d3.csv("res/VIC_city.csv", function(d){
-    console.table(d);
-    return {
-        place: +d.place,
-        lat: +d.lat,
-        long: +d.lon
-    }
-}).then(function(data){
-
-    var x = projection([data.long, data.lat])[0];
-    var y = projection([data.long, data.lat])[1];
-
-    console.log(x, y);
-
-    svg.selectAll("circle")
-    .data(data)
-    .enter()
-    .append("circle")
-    .attr("cx", function(d, i){
-        return x;
-    })
-    .attr("cy", function(d, i){
-        return y;
-    })
-    .attr("r", 5);
-
-    svg.selectAll("text")
-    .data(data)
-    .enter()
-    .append("text")
-    .attr("x", function(d){
-        return x;
-    })
-    .attr("y", function(d){
-        return y;
-    })
-    .style("fill", d3.color("yellow"))
-    .style("z-index", 1)
-    .text(function(d){
-        console.log(d);
-        return d.place;
+    d3.csv("res/VIC_city.csv", function(d){
+        console.table(d);
+        return {
+            place: JSON.parse(+d.place),
+            lat: +d.lat,
+            long: +d.lon
+        }
+    }).then(function(data){
+    
+        var x = projection([data.long, data.lat]);
+        var y = projection([data.long, data.lat]);
+    
+        console.log(x, y);
+    
+        svg.selectAll("circle")
+        .data(data)
+        .enter()
+        .append("circle")
+        .attr("cx", function(d, i){
+            return x;
+        })
+        .attr("cy", function(d, i){
+            return y;
+        })
+        .attr("r", 5);
+    
+        svg.selectAll("text")
+        .data(data)
+        .enter()
+        .append("text")
+        .attr("x", function(d){
+            return x;
+        })
+        .attr("y", function(d){
+            return y;
+        })
+        .style("fill", d3.color("yellow"))
+        .style("z-index", 1)
+        .text(function(d){
+            console.log(d);
+            return d.place;
+        });
     });
 });
+
+
 
 
