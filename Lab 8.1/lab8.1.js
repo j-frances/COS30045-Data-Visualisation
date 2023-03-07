@@ -7,7 +7,7 @@ var color = d3.scaleOrdinal(d3.schemeCategory10);
 var projection = d3.geoMercator()
     .center([145,-36])
     .translate([w / 2, h / 2])
-    .scale(1000);
+    .scale(2450);
 
 var path = d3.geoPath()
     .projection(projection);
