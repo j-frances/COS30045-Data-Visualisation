@@ -3,7 +3,7 @@ var h = 1000;
 var padding = 25;
 
 var color = d3.scaleOrdinal()
-    .range(['#004c6d','#41768e','#75a3b1','#acd0d6','#e7ffff']);
+    .range(['#edf8fb','#b3cde3','#8c96c6','#8856a7','#810f7c']);
 
     
 var projection = d3.geoMercator()
