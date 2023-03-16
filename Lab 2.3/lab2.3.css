@@ -18,7 +18,7 @@ div{
     text-shadow: black 1px 0px 0px;
 }
 footer{
-    position: absolute;
+    position: fixed;
     bottom: 1%;
     right: 5%;
 }
