@@ -78,7 +78,8 @@ for (var i = 0; i < dir.length; i++){
 
 	linkHeader.textContent = "Labs"
 	link.textContent = "Lab " + dir[i];
-
+	link.style.fontSize = "18px";
+	
 	linkHeader.style.paddingLeft = "25px";
 	link.style.paddingLeft = "50px";
 }
