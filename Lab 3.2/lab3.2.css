@@ -9,9 +9,6 @@ body{
     background-repeat: no-repeat;
     background-attachment: fixed;
     background: rgb(63,94,251);
-    background: -moz-linear-gradient(156deg, rgba(63,94,251,1) 0%, rgba(190,70,252,1) 86%);
-    background: -webkit-linear-gradient(156deg, rgba(63,94,251,1) 0%, rgba(190,70,252,1) 86%);
-    background: linear-gradient(156deg, rgba(63,94,251,1) 0%, rgba(190,70,252,1) 86%);
     color: aliceblue;
     font-family: 'Atkinson Hyperlegible', sans-serif;
     font-size:large;
