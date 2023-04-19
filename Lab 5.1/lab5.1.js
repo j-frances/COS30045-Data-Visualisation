@@ -1,5 +1,5 @@
 var w = 500;
-var h = 400;
+var h = 500;
 
 var padding = 100;
 
@@ -11,7 +11,7 @@ var xScale = d3.scaleBand()
     .paddingInner(0.05);
     
 var yScale = d3.scaleBand()
-    .domain(d3.range(d3.max(dataset)) + 1)
+    .domain(d3.range(0, d3.max(dataset)));
 
 var btn = d3.select("button")
     .on("click", function(){
@@ -46,14 +46,14 @@ var btn = d3.select("button")
                 return h - (h * yScale(d));
             })
             .attr("height", function(d){
-                return (d * (h * yScale.bandwidth()));
+                return (d * (h / yScale.bandwidth()));
             })
 
     })
 
 var svg = d3.select("body")
     .append("svg")
-    .attr("width", w + 100)
+    .attr("width", w + padding)
     .attr("height", h)
     .style("background-color", d3.color("skyblue"));
 
@@ -78,7 +78,7 @@ svg.selectAll("rect")
     })
     .attr("width", xScale.bandwidth())
     .attr("height", function(d){
-        return (d * (h * yScale.bandwidth()));
+        return (d * (h / yScale.bandwidth()));
     })
     .style("fill", d3.color("yellowgreen"));
 
