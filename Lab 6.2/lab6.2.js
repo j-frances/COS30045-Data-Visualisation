@@ -15,8 +15,10 @@ var yScale = d3.scaleBand()
 function removeValue(){
     dataset.shift();
 
+
     var bars = svg.selectAll("rect")
-        .data(dataset)
+        .data(dataset);
+    
 
     bars.exit()
     .transition()
@@ -32,6 +34,17 @@ function removeValue(){
         return yScale(d);
     })
     .remove();
+
+    xScale.domain(d3.range(dataset.length));
+
+    bars
+    .merge(bars)
+    .transition()
+    .duration(500)
+    .attr("x", function(d, i){
+        return xScale(i);
+    })
+    .attr("width", xScale.bandwidth());
 }
 
 function addRandomValue(type){
@@ -41,7 +54,10 @@ function addRandomValue(type){
         var newNumber = Math.floor(Math.random() * maxValue);
         dataset.push(newNumber);
 
+        console.log(dataset);
+
         xScale.domain(d3.range(dataset.length))
+            .rangeRound([padding,w])
         var bars = svg.selectAll("rect")
             .data(dataset);
 
@@ -60,10 +76,14 @@ function addRandomValue(type){
         .attr("height", function(d){
             return yScale(d);
         })
-        .style("fill", d3.color("yellowgreen"));
 
         svg.selectAll("rect")
             .data(dataset)
+            .attr("x", function(d, i){
+                return xScale(i);
+            })
+            .attr("width", xScale.bandwidth())
+            .style("fill", d3.color("yellowgreen"))
 
             .on("mouseover", function(event, d){
                 var offset = xScale.bandwidth() / 3
@@ -182,6 +202,7 @@ svg.selectAll("rect")
 var sortBars = function(){
     if(sortStatus == "ascending"){
         svg.selectAll("rect")
+        .data(dataset)
         .sort(function(a, b){
             return d3.descending(a, b);
         })
@@ -192,7 +213,16 @@ var sortBars = function(){
         .attr("x", function(d, i){
             return xScale(i);
         })
+        .attr("y", function(d){
+            return h - (h * yScale(d));
+        })
+        .attr("width", xScale.bandwidth())
+        .attr("height", function(d){
+            return (d * (h * yScale.bandwidth()));
+        })
         sortStatus = "descending";
+        dataset.sort((a,b) => b-a);
+        console.log(dataset);
     }else{
         svg.selectAll("rect")
         .sort(function(a, b){
@@ -205,6 +235,15 @@ var sortBars = function(){
         .attr("x", function(d, i){
             return xScale(i);
         })
+        .attr("y", function(d){
+            return h - (h * yScale(d));
+        })
+        .attr("width", xScale.bandwidth())
+        .attr("height", function(d){
+            return (d * (h * yScale.bandwidth()));
+        })
         sortStatus = "ascending";
+        dataset.sort((a,b) => a-b);
+        console.log(dataset);
     }
 }
