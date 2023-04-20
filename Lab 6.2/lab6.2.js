@@ -1,9 +1,22 @@
+
+/* 
+    Generate initial values including a status tracker for
+    the sort function as a global value. This ensures that 
+    we can track whether the dataset is sorted in ascending or
+    descending order.
+*/
 var w = 500;
 var h = 400;
 var sortStatus = "unsorted";
 var padding = 100;
 var dataset = [14, 5, 25, 23, 14];
 
+
+/* 
+    Create X and Y scales for the SVG based on the data provided
+    in the dataset. These will be updated according to the changes
+    made by each of the sort, add, and remove functions below.
+*/
 var xScale = d3.scaleBand()
     .domain(d3.range(dataset.length))
     .rangeRound([padding,w])
@@ -12,8 +25,14 @@ var xScale = d3.scaleBand()
 var yScale = d3.scaleBand()
     .domain(d3.range(d3.max(dataset) + 1));
 
+
+/* 
+    The last value in the dataset is removed from the dataset and
+    all other values within the SVG are updated so the graph fills
+    the space in the same format as originally displayed.
+*/
 function removeValue(){
-    dataset.shift();
+    dataset.pop();
 
 
     var bars = svg.selectAll("rect")
@@ -47,9 +66,15 @@ function removeValue(){
     .attr("width", xScale.bandwidth());
 }
 
-function addRandomValue(type){
 
-       
+/* 
+    Generates a random value within the range of the graph and adds it
+    to the dataset. The elements of the graph are then updated to accomodate
+    the new dataset and a new column representing the data is generated.
+    The new column must also have values set for the transition effects
+    and colour scheme so that it matches the existing format.
+*/
+function addRandomValue(type){
         var maxValue = 25;
         var newNumber = Math.floor(Math.random() * maxValue);
         dataset.push(newNumber);
@@ -138,6 +163,11 @@ function addRandomValue(type){
             })
 }
 
+/* 
+    Event listener for click event on the sort button.
+    Allows easier management of function calls.
+*/
+
 d3.select("#sort")
     .on("click", function(){
         sortBars();
@@ -158,6 +188,10 @@ svg.append("text")
     .attr("transform", "rotate(-90)")
     .text("life expectancy (years)");
 
+/* 
+    Generate the SVG, including adding the mouseover and colour 
+    transition effects for each column.
+*/
 svg.selectAll("rect")
     .data(dataset)
     .enter()
@@ -199,6 +233,12 @@ svg.selectAll("rect")
             .style("fill", d3.color("yellowgreen"))
     });
 
+
+/* 
+    Sort function to move the columns also sorts the dataset so that
+    subsequent addition or removal of columns does not reset the view
+    by calling a dataset that does not match the visual representation.
+*/
 var sortBars = function(){
     if(sortStatus == "ascending"){
         svg.selectAll("rect")
